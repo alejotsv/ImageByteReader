@@ -7,18 +7,23 @@ import java.io.IOException;
 
 public class ImageByteReader {
 
-    public ImageByteReader() throws IOException {
-        String path = getClass().getResource("pagedataicon.gif").getPath();
-        System.out.println(path);
-        FileInputStream fileInputStream = new FileInputStream(path);
-        int newByte = 0;
-        while(newByte != -1){
-            newByte = fileInputStream.read();
-            if(newByte == -1){
-                System.out.println("Done");
-                break;
+    public ImageByteReader() {
+        try {
+            String path = getClass().getResource("pagedataicon.gif").getPath();
+            FileInputStream fileInputStream = new FileInputStream(path);
+            int newByte = 0;
+            while(newByte != -1){
+                newByte = fileInputStream.read();
+                if(newByte == -1){
+                    System.out.println("Done");
+                    break;
+                }
+                System.out.println(newByte);
             }
-            System.out.println(newByte);
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        } catch (NullPointerException e){
+            System.out.println("Path is: " + e.getMessage());
         }
     }
 }
