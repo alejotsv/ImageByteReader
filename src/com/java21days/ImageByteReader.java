@@ -14,10 +14,7 @@ public class ImageByteReader {
             length = fileInputStream.available();
             imageBytes = new byte[length];
             fileInputStream.read(imageBytes, 0, length);
-
-            for ( byte imageByte : imageBytes ){
-                System.out.println(imageByte);
-            }
+            fileInputStream.close();
 
         } catch (IOException e){
             System.out.println(e.getMessage());
