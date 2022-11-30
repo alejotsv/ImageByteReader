@@ -14,15 +14,10 @@ public class ImageByteReader {
             FileInputStream fileInputStream = new FileInputStream(path);
             int length = fileInputStream.available();
             imageBytes = new byte[length];
-            int newByte = 0;
-            while(newByte != -1){
-                newByte = fileInputStream.read();
-                if(newByte == -1){
-                    System.out.println("Done");
-                    fileInputStream.close();
-                    break;
-                }
-                System.out.println(newByte);
+            fileInputStream.read(imageBytes, 0, length);
+
+            for ( byte imageByte : imageBytes ){
+                System.out.println(imageByte);
             }
 
         } catch (IOException e){
