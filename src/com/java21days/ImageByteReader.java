@@ -16,6 +16,7 @@ public class ImageByteReader {
                 newByte = fileInputStream.read();
                 if(newByte == -1){
                     System.out.println("Done");
+                    fileInputStream.close();
                     break;
                 }
                 System.out.println(newByte);
