@@ -9,7 +9,7 @@ public class ImageByteReader {
 
     public ImageByteReader() {
         try {
-            String path = getClass().getResource("pagedataicon.gif").getPath();
+            String path = getClass().getResource("rm.png").getPath();
             FileInputStream fileInputStream = new FileInputStream(path);
             int newByte = 0;
             while(newByte != -1){
